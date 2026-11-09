@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+set -u
+
+# mvn -T1C clean package
+mvn -T1C package
+
+if [ "${1:-}" = "debugn" ]; then
+    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 \
+        -jar target/payment-0.0.1.jar \
+        --spring.profiles.active=override
+elif [ "${1:-}" = "debugy" ]; then
+    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005 \
+        -jar target/payment-0.0.1.jar \
+        --spring.profiles.active=override
+else
+    java \
+        -jar target/payment-0.0.1.jar \
+        --spring.profiles.active=override
+fi
+

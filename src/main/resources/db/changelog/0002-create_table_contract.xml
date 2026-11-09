@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+                   logicalFilePath="0002-create_table_contract.xml">
+
+    <changeSet id="0002-create_table_contract" author="ludvig">
+        <createTable tableName="contract">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="contract_number" type="VARCHAR(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="client_id" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="contract" constraintName="uq_contract_contract_number" columnNames="contract_number" />
+
+        <createIndex tableName="contract" indexName="idx_contract_client">
+            <column name="client_id" />
+        </createIndex>
+
+        <addForeignKeyConstraint baseTableName="contract"
+                                 baseColumnNames="client_id"
+                                 constraintName="fk_contract_client"
+                                 referencedTableName="client"
+                                 referencedColumnNames="id"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT" />
+    </changeSet>
+
+</databaseChangeLog>

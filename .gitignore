@@ -1,0 +1,36 @@
+# Emacs
+*~
+\#*\#
+
+# Java
+target/
+
+# Local config
+application-override.yml
+application-*c.yml
+config/
+certs/
+liquibase.properties
+/.db-data
+/z-fix-db-changelog-out
+
+# Temp
+eclipselink.log
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VSCode
+.vscode/
+
+# Eclipse jdtls
+.settings/
+*.project
+*.prefs
+*.classpath
+*.factorypath
+.apt_generated/
+.apt_generated_tests/

@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="0001-create_table_client.xml" relativeToChangelogFile="true" />
+    <include file="0002-create_table_contract.xml" relativeToChangelogFile="true" />
+    <include file="0003-create_table_payment.xml" relativeToChangelogFile="true" />
+
+    <!-- TEMPLATE
+    <include file="FILE_NAME_FILE_NAME_FILE_NAME" relativeToChangelogFile="true" />
+    -->
+
+    <!-- SCRIPT
+    ls -1 | xargs -I{} echo "<include file=\"{}\" relativeToChangelogFile=\"true\" />"
+    -->
+
+</databaseChangeLog>
